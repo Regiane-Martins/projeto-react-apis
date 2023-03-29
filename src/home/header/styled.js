@@ -36,6 +36,7 @@ export const ButtonCart = styled.button`
 
   @media (max-width: 768px) {
     height: 60px;
+    margin-right: 2.5rem;
     width: 180px;
   }
 
@@ -50,7 +51,7 @@ export const MenuMobile = styled.img`
   @media (max-width: 480px) {
     display: block;
     height: auto;
-    margin-right: 2rem;
+    margin-right: 3rem;
     width: 50px;
   }
 `;
