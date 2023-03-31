@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
+export const HeaderContent = styled.div`
+  min-height: 168px;
+  width: 100%;
+`;
+
 export const Section = styled.div`
   align-items: center;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  padding-top: 21px;
+  padding: 21px 0;
 `;
 
 export const Logo = styled.img`

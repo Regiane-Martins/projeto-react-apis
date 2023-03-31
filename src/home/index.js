@@ -1,11 +1,12 @@
-import Header from "./header";
-import * as s from "./styled";
+import Header from "../components/header/header-home";
+import ListPokemons from "../home/list-pokemons";
 
 function Home() {
   return (
-    <s.HeaderContent>
+    <>
       <Header />
-    </s.HeaderContent>
+      <ListPokemons />
+    </>
   );
 }
 

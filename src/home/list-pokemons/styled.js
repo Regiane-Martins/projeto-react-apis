@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  background-color: #dddddd;
+  background-color: #8a8a8a;
   padding: 40px 16px;
 `;
 
@@ -12,9 +12,4 @@ export const Title = styled.h1`
   padding: 2rem;
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.063rem;
-  justify-content: center;
-`;
+
