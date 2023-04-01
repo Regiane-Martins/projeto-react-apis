@@ -46,17 +46,10 @@ export const ButtonCart = styled.button`
   }
 
   @media (max-width: 480px) {
-    display: none;
+    height: 50px;
+    margin-right: 2rem;
+    width: 130px;
   }
 `;
 
-export const MenuMobile = styled.img`
-  display: none;
 
-  @media (max-width: 480px) {
-    display: block;
-    height: auto;
-    margin-right: 3rem;
-    width: 50px;
-  }
-`;

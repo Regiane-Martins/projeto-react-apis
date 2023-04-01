@@ -20,7 +20,7 @@ function PokemonCard() {
           src={process.env.PUBLIC_URL + "/img/pngwing 2.svg"}
           alt="logo Pokémon"
         />
-        <img />
+        <s.PokemonIcon />
       </s.Card>
     </>
   );

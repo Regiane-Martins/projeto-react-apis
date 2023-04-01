@@ -9,10 +9,6 @@ function Header() {
           alt="logo Pokémon"
         />
         <s.ButtonCart>Pokédex</s.ButtonCart>
-        <s.MenuMobile
-          src={process.env.PUBLIC_URL + "/img/menu-hamburger-blue.svg"}
-          alt="menu mobile"
-        />
       </s.Section>
     </s.HeaderContent>
   );

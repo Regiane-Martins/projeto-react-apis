@@ -17,6 +17,14 @@ export const Title = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
-
-

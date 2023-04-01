@@ -96,3 +96,8 @@ export const Background = styled.img`
   top: 3px;
   right: 0;
 `;
+
+export const PokemonIcon = styled.img`
+  height: 193px;
+  width: 193px;
+`
