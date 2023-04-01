@@ -5,8 +5,12 @@ function ListPokemons() {
   return (
     <s.Section>
       <s.Title>Todos Pokémons</s.Title>
-      <PokemonCard/>
-
+      <s.Content>
+        <PokemonCard />
+        <PokemonCard />
+        <PokemonCard />
+        <PokemonCard />
+      </s.Content>
     </s.Section>
   );
 }

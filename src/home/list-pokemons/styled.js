@@ -5,6 +5,13 @@ export const Section = styled.section`
   padding: 40px 16px;
 `;
 
+export const Content = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.063rem;
+  justify-content: center;
+`;
+
 export const Title = styled.h1`
   color: #fff;
   font-size: 3rem;

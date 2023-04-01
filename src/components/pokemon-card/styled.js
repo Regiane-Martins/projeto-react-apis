@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.063rem;
-  justify-content: center;
-`;
-
 export const Card = styled.div`
   background-color: #729f92;
   border-radius: 12px;
@@ -42,7 +35,7 @@ export const Attribute = styled.div`
 
 export const Paison = styled.button`
   background-color: #ad61ae;
-  border: none;
+  border: 1px dashed #fff;
   border-radius: 8px;
   color: #fff;
   font-family: "Poppins";
@@ -55,7 +48,7 @@ export const Paison = styled.button`
 
 export const Grass = styled.button`
   background-color: #70b873;
-  border: none;
+  border: 1px dashed #fff;
   border-radius: 8px;
   color: #fff;
   font-family: "Poppins";
