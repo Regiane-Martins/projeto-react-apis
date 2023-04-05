@@ -22,7 +22,7 @@ export const Id = styled.p`
 
 export const Name = styled.p`
   font-family: "Inter";
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
 `;
@@ -100,4 +100,8 @@ export const Background = styled.img`
 export const PokemonIcon = styled.img`
   height: 193px;
   width: 193px;
+  position: absolute;
+  right: 0;
+  top: -50px;
+
 `

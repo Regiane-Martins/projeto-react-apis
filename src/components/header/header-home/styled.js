@@ -51,5 +51,3 @@ export const ButtonCart = styled.button`
     width: 130px;
   }
 `;
-
-

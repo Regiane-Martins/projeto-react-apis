@@ -1,11 +1,30 @@
+import axios from "axios";
 import * as s from "./styled";
+import { useEffect } from "react";
+import { useState } from "react";
 
-function PokemonCard() {
+function PokemonCard(props) {
+  const { pokemon } = props;
+  const [image, setImage] = useState("");
+  const [id, setId] = useState("");
+
+  const loadingDetail = async () => {
+    try {
+      const res = await axios.get(pokemon.url);
+      setImage(res.data.sprites.other["official-artwork"].front_default);
+      setId(res.data.id)
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    loadingDetail();
+  }, []);
+
   return (
     <>
       <s.Card>
-        <s.Id>#id</s.Id>
-        <s.Name>Nome</s.Name>
+        <s.Id>#{id}</s.Id>
+        <s.Name>{pokemon.name}</s.Name>
         <s.Attribute>
           <s.Paison>Paison</s.Paison>
           <s.Grass>Grass</s.Grass>
@@ -20,7 +39,7 @@ function PokemonCard() {
           src={process.env.PUBLIC_URL + "/img/pngwing 2.svg"}
           alt="logo Pokémon"
         />
-        <s.PokemonIcon />
+        <s.PokemonIcon src={image} />
       </s.Card>
     </>
   );
