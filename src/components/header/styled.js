@@ -13,7 +13,8 @@ export const Header = styled.div`
   align-items: center;
   background-color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 4rem;
   position: relative;
 `;
 
@@ -143,6 +144,7 @@ export const Home = styled.a`
 `;
 
 export const HomeIcon = styled.img`
+  display: none;
   @media (max-width: 480px) {
     cursor: pointer;
     height: auto;

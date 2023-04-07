@@ -1,4 +1,5 @@
 import PokemonCard from "../../components/pokemon-card";
+import { BASE_URL } from "../../constants/BASE_URL";
 import * as s from "./styled";
 import axios from "axios";
 import { useEffect } from "react";
@@ -8,9 +9,11 @@ function ListPokemons(props) {
 
   const rendPokemon = async () => {
     try {
-      const real = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
-      setPokemon(real.data.results);
-    } catch (error) {}
+      const res = await axios.get(BASE_URL);
+      setPokemon(res.data.results);
+    } catch (error) {
+      alert(error.response);
+    }
   };
 
   useEffect(() => {
@@ -21,8 +24,8 @@ function ListPokemons(props) {
     <s.Section>
       <s.Title>Todos Pokémons</s.Title>
       <s.Content>
-        {pokemon.map((pokemon) => (
-          <PokemonCard pokemon={pokemon} />
+        {pokemon.map((pokemon, index) => (
+          <PokemonCard key={index} pokemon={pokemon} />
         ))}
       </s.Content>
     </s.Section>

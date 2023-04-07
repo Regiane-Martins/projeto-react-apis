@@ -18,7 +18,7 @@ export const Card = styled.div`
   } */
 
   @media (max-width: 480px) {
-    height: 195px;
+    height: 205px;
     width: 400px;
   }
 `;
@@ -34,7 +34,7 @@ export const Name = styled.p`
   font-family: "Inter";
   font-size: 1.5rem;
   font-weight: 700;
-  line-height: 1;
+  margin-bottom: 0.625rem;
   :first-letter {
     text-transform: capitalize;
   }
@@ -46,7 +46,7 @@ export const Attribute = styled.div`
   margin-bottom: 2.2rem;
 `;
 
-export const Paison = styled.button`
+export const Attack = styled.button`
   background-color: #ad61ae;
   border: 1px dashed #fff;
   border-radius: 8px;
@@ -57,6 +57,10 @@ export const Paison = styled.button`
   height: 31px;
   padding: 5px, 8px;
   width: 99px;
+
+  :first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const Grass = styled.button`
@@ -70,6 +74,10 @@ export const Grass = styled.button`
   height: 31px;
   padding: 5px, 8px;
   width: 91px;
+
+  :first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const Details = styled.div`
