@@ -1,11 +1,12 @@
-import Header from "../components/header/header-home";
+import Header from "../components/header";
 import ListPokemons from "../home/list-pokemons";
 
-function Home() {
+function Home(props) {
+  const { pokemon, setPokemon } = props;
   return (
     <>
       <Header />
-      <ListPokemons />
+      <ListPokemons pokemon={pokemon} setPokemon={setPokemon} />
     </>
   );
 }

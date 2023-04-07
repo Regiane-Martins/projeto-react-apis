@@ -11,6 +11,16 @@ export const Card = styled.div`
   padding: 21px;
   position: relative;
   width: 440px;
+
+  /* @media (max-width: 7680px){
+    height: 195px;
+    width: 400px;
+  } */
+
+  @media (max-width: 480px) {
+    height: 195px;
+    width: 400px;
+  }
 `;
 
 export const Id = styled.p`
@@ -25,6 +35,9 @@ export const Name = styled.p`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1;
+  :first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const Attribute = styled.div`
@@ -103,5 +116,4 @@ export const PokemonIcon = styled.img`
   position: absolute;
   right: 0;
   top: -50px;
-
-`
+`;

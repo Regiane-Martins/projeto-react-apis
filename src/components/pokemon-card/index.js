@@ -12,7 +12,7 @@ function PokemonCard(props) {
     try {
       const res = await axios.get(pokemon.url);
       setImage(res.data.sprites.other["official-artwork"].front_default);
-      setId(res.data.id)
+      setId(res.data.id);
     } catch (error) {}
   };
 
@@ -23,7 +23,7 @@ function PokemonCard(props) {
   return (
     <>
       <s.Card>
-        <s.Id>#{id}</s.Id>
+        <s.Id>#{String(id).padStart(2, "0")}</s.Id>
         <s.Name>{pokemon.name}</s.Name>
         <s.Attribute>
           <s.Paison>Paison</s.Paison>
@@ -39,7 +39,7 @@ function PokemonCard(props) {
           src={process.env.PUBLIC_URL + "/img/pngwing 2.svg"}
           alt="logo Pokémon"
         />
-        <s.PokemonIcon src={image} />
+        <s.PokemonIcon src={image} alt="pokemon icon" />
       </s.Card>
     </>
   );
