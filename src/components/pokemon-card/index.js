@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { goToDetail } from "../routes/coordenatior";
 import { useNavigate } from "react-router-dom";
+import Modal from "../modal";
+import { Container } from "../container";
 
 function PokemonCard(props) {
   const { pokemon } = props;
@@ -31,39 +33,32 @@ function PokemonCard(props) {
 
   return (
     <>
-      <s.Card>
-        <s.Id>#{String(id).padStart(2, "0")}</s.Id>
-        <s.Name>{pokemon.name}</s.Name>
-        <s.Attribute>
-          <s.Attack>{typeTwo?.name}</s.Attack>
-          <s.Grass>{typeOne?.name}</s.Grass>
-        </s.Attribute>
-        <s.Details>
-          <s.Link
-            href="/"
-            onClick={(e) => {
-              e.preventDefault();
-              goToDetail(navigate);
-            }}
-          >
-            Detalhes
-          </s.Link>
-          <s.ButtonContainer>
-            <s.Button onClick={() => setShowGotcha(true)}>Capturar!</s.Button>
-          </s.ButtonContainer>
-        </s.Details>
-        <s.Background
-          src={process.env.PUBLIC_URL + "/img/pngwing 2.svg"}
-          alt="logo Pokémon"
-        />
-        <s.PokemonIcon src={image} alt="pokemon icon" />
-        {showGotcha && (
-          <img
-            src={process.env.PUBLIC_URL + "/img/Frame 15.svg"}
-            alt="pokemon capturado"
-          />
-        )}
-      </s.Card>
+     
+        <s.Card>
+          <s.Id>#{String(id).padStart(2, "0")}</s.Id>
+          <s.Name>{pokemon.name}</s.Name>
+          <s.Attribute>
+            <s.Attack>{typeTwo?.name}</s.Attack>
+            <s.Grass>{typeOne?.name}</s.Grass>
+          </s.Attribute>
+          <s.Details>
+            <s.Link
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                goToDetail(navigate);
+              }}
+            >
+              Detalhes
+            </s.Link>
+            <s.ButtonContainer>
+              <s.Button onClick={() => setShowGotcha(true)}>Capturar!</s.Button>
+            </s.ButtonContainer>
+          </s.Details>
+          <s.PokemonIcon src={image} alt="pokemon icon" />
+          {showGotcha ? <Modal /> : null}
+        </s.Card>
+    
     </>
   );
 }

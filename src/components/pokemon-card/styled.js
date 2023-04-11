@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  background-color: #729f92;
+  background: url(${process.env.PUBLIC_URL}/img/pngwing2.svg) #729f92 no-repeat
+    right;
   border-radius: 12px;
   color: #fff;
   display: flex;
@@ -109,18 +110,6 @@ export const Button = styled.button`
   height: 38px;
   width: 146px;
   padding: 4px 10px;
-
-  :hover {
-    background-color: blue;
-  }
-`;
-
-export const Background = styled.img`
-  height: 210.73px;
-  width: 210.73px;
-  position: absolute;
-  top: 3px;
-  right: 0;
 `;
 
 export const PokemonIcon = styled.img`

@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   background-color: #8a8a8a;
-  padding: 70px 25px;
+  display: flex;
+  /* justify-content: center; */
+  /* padding: 70px 25px; */
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 3.313rem 1.25rem;
-  height: fit-content;
   justify-content: center;
 `;
 
@@ -18,7 +19,6 @@ export const Title = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3.438rem;
-  /* padding-left: 20px; */
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
