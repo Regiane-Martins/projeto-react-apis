@@ -103,11 +103,16 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   color: #0f0f0f;
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 400;
   height: 38px;
   width: 146px;
   padding: 4px 10px;
+
+  :hover {
+    background-color: blue;
+  }
 `;
 
 export const Background = styled.img`

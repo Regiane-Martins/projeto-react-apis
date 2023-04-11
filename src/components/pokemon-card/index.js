@@ -2,6 +2,8 @@ import axios from "axios";
 import * as s from "./styled";
 import { useEffect } from "react";
 import { useState } from "react";
+import { goToDetail } from "../routes/coordenatior";
+import { useNavigate } from "react-router-dom";
 
 function PokemonCard(props) {
   const { pokemon } = props;
@@ -9,6 +11,8 @@ function PokemonCard(props) {
   const [id, setId] = useState("");
   const [typeOne, setTypeOne] = useState({ name: "" });
   const [typeTwo, setTypeTwo] = useState({ name: "" });
+  const [showGotcha, setShowGotcha] = useState(false);
+  const navigate = useNavigate();
 
   const loadingDetail = async () => {
     try {
@@ -35,9 +39,17 @@ function PokemonCard(props) {
           <s.Grass>{typeOne?.name}</s.Grass>
         </s.Attribute>
         <s.Details>
-          <s.Link href="/">Detalhes</s.Link>
+          <s.Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              goToDetail(navigate);
+            }}
+          >
+            Detalhes
+          </s.Link>
           <s.ButtonContainer>
-            <s.Button>Capturar!</s.Button>
+            <s.Button onClick={() => setShowGotcha(true)}>Capturar!</s.Button>
           </s.ButtonContainer>
         </s.Details>
         <s.Background
@@ -45,6 +57,12 @@ function PokemonCard(props) {
           alt="logo Pokémon"
         />
         <s.PokemonIcon src={image} alt="pokemon icon" />
+        {showGotcha && (
+          <img
+            src={process.env.PUBLIC_URL + "/img/Frame 15.svg"}
+            alt="pokemon capturado"
+          />
+        )}
       </s.Card>
     </>
   );

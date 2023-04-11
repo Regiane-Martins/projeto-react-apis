@@ -4,9 +4,17 @@ import Header from "../../components/header";
 import * as s from "./styled";
 import { BASE_URL } from "../../constant/BASE_URL";
 import axios from "axios";
+import Loading from "../../components/Loading";
+import { useResquestData } from "../../components/hooks/useRequestData";
 
 function Home() {
   const [pokemon, setPokemon] = useState([]);
+
+  /* const [pokemon, isLoading] = useResquestData(`${BASE_URL}`, []); */
+
+  const renderPokemon = pokemon.map((pokemon, index) => (
+    <PokemonCard key={index} pokemon={pokemon} />
+  ));
 
   const rendPokemon = async () => {
     try {
@@ -26,9 +34,9 @@ function Home() {
       <s.Section>
         <s.Title>Todos Pokémons</s.Title>
         <s.Content>
-          {pokemon.map((pokemon, index) => (
-            <PokemonCard key={index} pokemon={pokemon} />
-          ))}
+          {renderPokemon}
+          {/*  {isLoading && <Loading />}
+          {!isLoading && pokemon && pokemon.length > 0 && renderPokemon} */}
         </s.Content>
       </s.Section>
     </>
