@@ -13,7 +13,7 @@ export const Header = styled.div`
   align-items: center;
   background-color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 4rem;
   position: relative;
 `;
@@ -80,6 +80,8 @@ export const DeletePokemon = styled.button`
   height: 57px;
   margin-right: 1.313rem;
   padding: 4px 10px;
+  position: absolute;
+  right: 0;
   width: 226px;
 
   @media (max-width: 768px) {
@@ -91,7 +93,7 @@ export const DeletePokemon = styled.button`
   @media (max-width: 480px) {
     height: 40px;
     font-size: 0.75rem;
-    margin: 1.8rem 0.75rem 0 0;
+    margin-right: 0.75rem;
     padding: 0.2rem;
     width: 100px;
   }
@@ -100,15 +102,17 @@ export const DeletePokemon = styled.button`
 export const ReturnPage = styled.div`
   align-items: center;
   display: flex;
+  justify-content: space-between;
   gap: 0.644rem;
-  padding: 3.875rem 5rem;
+  position: absolute;
+  left: 5.146rem;
 
   @media (max-width: 768px) {
-    padding-left: 2rem;
+    left: 2rem;
   }
 
   @media (max-width: 480px) {
-    padding-left: 1rem;
+    left: 1.5rem;
   }
 `;
 
@@ -146,7 +150,10 @@ export const Home = styled.a`
 export const HomeIcon = styled.img`
   display: none;
   @media (max-width: 480px) {
+    left: 0.75rem;
+    display: block;
     cursor: pointer;
     height: auto;
+    width: 40px;
   }
 `;

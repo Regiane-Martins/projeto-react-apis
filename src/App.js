@@ -1,11 +1,11 @@
-import { useState } from "react";
-import Home from "./home";
+
+import Router from "./components/routes/Router";
 
 function App() {
-  const [pokemon, setPokemon] = useState([]);
   return (
     <>
-      <Home pokemon={pokemon} setPokemon={setPokemon} />
+      <Router />
+      {/* <Home pokemon={pokemon} setPokemon={setPokemon} /> */}
     </>
   );
 }
