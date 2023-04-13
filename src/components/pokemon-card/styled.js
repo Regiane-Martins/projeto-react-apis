@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  background: url(${process.env.PUBLIC_URL}/img/pngwing2.svg) #729f92 no-repeat
-    right;
+  background: url(${process.env.PUBLIC_URL}/img/pngwing2.svg)
+    ${({ color }) => color} no-repeat right;
   border-radius: 12px;
   color: #fff;
   display: flex;
@@ -12,11 +12,6 @@ export const Card = styled.div`
   padding: 21px;
   position: relative;
   width: 440px;
-
-  /* @media (max-width: 7680px){
-    height: 195px;
-    width: 400px;
-  } */
 
   @media (max-width: 480px) {
     height: 205px;
@@ -47,34 +42,17 @@ export const Attribute = styled.div`
   margin-bottom: 2.2rem;
 `;
 
-export const Attack = styled.button`
-  background-color: #ad61ae;
+export const Type = styled.button`
+  background: url(${({ image }) => image}) no-repeat 10% center
+    ${({ color }) => color};
   border: 1px dashed #fff;
   border-radius: 8px;
   color: #fff;
   font-family: "Poppins";
   font-size: 0.875rem;
   font-weight: 400;
-  height: 31px;
-  padding: 5px, 8px;
-  width: 99px;
-
-  :first-letter {
-    text-transform: capitalize;
-  }
-`;
-
-export const Grass = styled.button`
-  background-color: #70b873;
-  border: 1px dashed #fff;
-  border-radius: 8px;
-  color: #fff;
-  font-family: "Poppins";
-  font-size: 0.875rem;
-  font-weight: 400;
-  height: 31px;
-  padding: 5px, 8px;
-  width: 91px;
+  padding: 5px 8px 5px 40px;
+  text-align: right;
 
   :first-letter {
     text-transform: capitalize;

@@ -28,7 +28,13 @@ function Header() {
                 src={process.env.PUBLIC_URL + "/img/arrow.svg"}
                 alt="seta esquerda"
               />
-              <s.Link href="/" onClick={() => goToHome(navigate)}>
+              <s.Link
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToHome(navigate);
+                }}
+              >
                 Todos Pokémons
               </s.Link>
               <s.Home href="/">
