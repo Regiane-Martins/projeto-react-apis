@@ -3,6 +3,7 @@ import * as s from "./styled";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import PokemonCard from "../../components/pokemon-card";
+import { Container } from "../../components/container";
 
 function List() {
   const context = useContext(GlobalContext);
@@ -16,7 +17,12 @@ function List() {
   return (
     <>
       <Header />
-      <s.Section>{renderPokemonCaptured}</s.Section>
+      <s.Section>
+        <Container>
+          <s.Title>Meus Pokémons</s.Title>
+          <s.Content>{renderPokemonCaptured}</s.Content>
+        </Container>
+      </s.Section>
     </>
   );
 }

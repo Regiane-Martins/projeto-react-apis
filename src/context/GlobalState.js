@@ -6,14 +6,13 @@ function GlobalState() {
   const [modalCapture, setModalCapture] = useState(false);
 
   const capture = (pokemon) => {
-    const exists = pokedex.some((item) => item.name === pokemon.name);
-
-    if (exists) {
-      return;
-    }
+    const pokemonsFiltered = pokemons.filter(
+      (item) => item.name !== pokemon.name
+    );
 
     setModalCapture(true);
     setPokedex([...pokedex, pokemon]);
+    setPokemons(pokemonsFiltered);
   };
 
   const remove = () => {
