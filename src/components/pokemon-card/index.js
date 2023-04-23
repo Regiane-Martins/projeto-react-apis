@@ -40,7 +40,7 @@ function PokemonCard(props) {
 
   useEffect(() => {
     loadDetail();
-  }, []);
+  });
 
   return (
     <>

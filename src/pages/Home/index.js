@@ -13,13 +13,23 @@ function Home() {
   const context = useContext(GlobalContext);
 
   const renderPokemon = context.pokemons
-    /* .sort((a, b) => a.id > b.id) */
+    .sort((a, b) => a.id - b.id)
     .map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />);
 
   const renderPokemons = async () => {
     try {
       const res = await axios.get(BASE_URL);
-      context.setPokemons(res.data.results);
+      const pokemons = res.data.results.map(({ name, url }) => {
+        const match = url.match(/[^/]+(?=\/$|$)/);
+
+        return {
+          id: Number(match[0]),
+          name,
+          url,
+        };
+      });
+
+      context.setPokemons(pokemons);
     } catch (error) {
       alert(error.response);
     }
@@ -31,7 +41,7 @@ function Home() {
     }
 
     renderPokemons();
-  }, []);
+  });
 
   return (
     <>

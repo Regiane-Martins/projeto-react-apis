@@ -5,7 +5,6 @@ function GlobalState() {
   const [pokedex, setPokedex] = useState([]);
   const [modalCapture, setModalCapture] = useState(false);
   const [modalExcluded, setModalExcluded] = useState(false);
-  const [id, setId] = useState("")
 
   const capture = (pokemon) => {
     const pokemonsFiltered = pokemons.filter(
@@ -44,7 +43,6 @@ function GlobalState() {
     modalExcluded,
     setModalCapture,
     remove,
-    id
   };
 }
 
