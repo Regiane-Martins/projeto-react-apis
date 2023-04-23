@@ -90,6 +90,17 @@ export const Button = styled.button`
   padding: 4px 10px;
 `;
 
+export const ButtonDelete = styled.button`
+  background-color: #ff6262;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  height: 38px;
+  width: 146px;
+  padding: 4px 10px;
+`;
+
 export const PokemonIcon = styled.img`
   height: 193px;
   width: 193px;

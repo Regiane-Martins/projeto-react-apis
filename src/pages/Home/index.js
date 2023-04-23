@@ -12,9 +12,9 @@ import ModalCapture from "../../components/modal-capture";
 function Home() {
   const context = useContext(GlobalContext);
 
-  const renderPokemon = context.pokemons.map((pokemon) => (
-    <PokemonCard key={pokemon.name} pokemon={pokemon} />
-  ));
+  const renderPokemon = context.pokemons
+    /* .sort((a, b) => a.id > b.id) */
+    .map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />);
 
   const renderPokemons = async () => {
     try {
@@ -26,6 +26,10 @@ function Home() {
   };
 
   useEffect(() => {
+    if (context.pokemons.length > 0) {
+      return;
+    }
+
     renderPokemons();
   }, []);
 

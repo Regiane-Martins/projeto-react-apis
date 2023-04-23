@@ -3,7 +3,7 @@ import * as s from "./styled";
 import { useEffect } from "react";
 import { useState } from "react";
 import { goToDetail } from "../routes/coordenatior";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { attributes } from "../settings";
@@ -18,6 +18,7 @@ function PokemonCard(props) {
   const [color, setColor] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const loadDetail = async () => {
     try {
@@ -71,9 +72,19 @@ function PokemonCard(props) {
             Detalhes
           </s.Link>
           <s.ButtonContainer>
-            <s.Button onClick={() => context.capture(pokemon)}>
-              Capturar!
-            </s.Button>
+            {location.pathname === "/" ? (
+              <s.Button onClick={() => context.capture(pokemon)}>
+                Capturar!
+              </s.Button>
+            ) : (
+              <s.ButtonDelete
+                onClick={() => {
+                  context.remove(pokemon);
+                }}
+              >
+                Excluir
+              </s.ButtonDelete>
+            )}
           </s.ButtonContainer>
         </s.Details>
         <s.PokemonIcon src={image} alt="pokemon icon" />

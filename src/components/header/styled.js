@@ -14,6 +14,7 @@ export const Header = styled.div`
   background-color: #fff;
   display: flex;
   justify-content: space-evenly;
+  column-gap: 20px;
   padding: 4rem;
   position: relative;
 `;
@@ -21,20 +22,10 @@ export const Header = styled.div`
 export const Logo = styled.img`
   height: auto;
   margin: 0 auto;
-  width: 307px;
-  padding-top: 21px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  @media (max-width: 768px) {
-    width: 250px;
-  }
+  max-width: 100%;
 
   @media (max-width: 480px) {
-    width: 180px;
-    top: 30%;
+    margin-right: 2rem;
   }
 `;
 
@@ -47,24 +38,20 @@ export const ButtonCart = styled.button`
   font-size: 1.5rem;
   font-weight: 700;
   height: 74px;
-  margin-right: 1.313rem;
   padding: 4px 10px;
-  position: absolute;
-  top: 40%;
-  right: 0;
+  max-width: 100%;
   width: 287px;
 
   @media (max-width: 768px) {
     height: 60px;
-    margin-right: 2rem;
+    margin-left: auto;
     width: 150px;
   }
 
   @media (max-width: 480px) {
     height: 40px;
     font-size: 0.9rem;
-    margin-right: 0.75rem;
-    width: 100px;
+    width: 90px;
   }
 `;
 
@@ -156,4 +143,14 @@ export const HomeIcon = styled.img`
     height: auto;
     width: 40px;
   }
+`;
+
+export const headerSection = styled.div`
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  width: 33%;
 `;

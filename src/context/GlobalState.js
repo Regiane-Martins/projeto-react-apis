@@ -4,6 +4,8 @@ function GlobalState() {
   const [pokemons, setPokemons] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [modalCapture, setModalCapture] = useState(false);
+  const [modalExcluded, setModalExcluded] = useState(false);
+  const [id, setId] = useState("")
 
   const capture = (pokemon) => {
     const pokemonsFiltered = pokemons.filter(
@@ -13,10 +15,24 @@ function GlobalState() {
     setModalCapture(true);
     setPokedex([...pokedex, pokemon]);
     setPokemons(pokemonsFiltered);
+
+    setTimeout(() => {
+      setModalCapture(false);
+    }, 2000);
   };
 
-  const remove = () => {
-    setModalCapture(true);
+  const remove = (pokemon) => {
+    const excludedPokemons = pokedex.filter(
+      (item) => item.name !== pokemon.name
+    );
+
+    setModalExcluded(true);
+    setPokedex(excludedPokemons);
+    setPokemons([...pokemons, pokemon]);
+
+    setTimeout(() => {
+      setModalExcluded(false);
+    }, 2000);
   };
 
   return {
@@ -25,8 +41,10 @@ function GlobalState() {
     setPokemons,
     capture,
     modalCapture,
+    modalExcluded,
     setModalCapture,
     remove,
+    id
   };
 }
 
