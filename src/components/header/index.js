@@ -1,10 +1,16 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import * as s from "./styled";
 import { goToHome, goToList } from "../routes/coordenatior";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
+import ModalCapture from "../modal-capture";
+import ModalExcluded from "../modalExcluded";
 
 function Header() {
   const navigate = useNavigate();
   const location = useLocation();
+  const context = useContext(GlobalContext);
+  const { capture, remove, modalCapture, modalExcluded } = context;
 
   return (
     <>
@@ -86,7 +92,17 @@ function Header() {
               />
             </s.headerSection>
             <s.headerSection>
-              <s.DeletePokemon>Excluir da Pokédex</s.DeletePokemon>
+              {location.pathname === "/list" ? (
+                <s.DeleteAndCapturePokemon onClick={() => remove()}>
+                  Excluir da Pokédex
+                </s.DeleteAndCapturePokemon>
+              ) : (
+                <s.DeleteAndCapturePokemon onClick={() => capture()}>
+                  Capturar
+                </s.DeleteAndCapturePokemon>
+              )}
+              {modalExcluded && <ModalExcluded />}
+              {modalCapture && <ModalCapture />}
             </s.headerSection>
           </s.Header>
         </s.HeaderContent>

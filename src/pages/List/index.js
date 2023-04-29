@@ -1,7 +1,7 @@
 import Header from "../../components/header";
 import * as s from "./styled";
 import { useContext } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 import PokemonCard from "../../components/pokemon-card";
 import { Container } from "../../components/container";
 import ModalExcluded from "../../components/modalExcluded";

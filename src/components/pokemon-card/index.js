@@ -5,7 +5,7 @@ import { useState } from "react";
 import { goToDetail } from "../routes/coordenatior";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 import { attributes } from "../settings";
 
 function PokemonCard(props) {
@@ -66,7 +66,7 @@ function PokemonCard(props) {
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              goToDetail(navigate);
+              goToDetail(navigate, pokemon.name);
             }}
           >
             Detalhes

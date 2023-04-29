@@ -55,7 +55,7 @@ export const ButtonCart = styled.button`
   }
 `;
 
-export const DeletePokemon = styled.button`
+export const DeleteAndCapturePokemon = styled.button`
   background-color: #ff6262;
   border: none;
   border-radius: 8px;

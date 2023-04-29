@@ -1,10 +1,13 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { attributes } from "../components/settings";
 
 function GlobalState() {
   const [pokemons, setPokemons] = useState([]);
   const [pokedex, setPokedex] = useState([]);
   const [modalCapture, setModalCapture] = useState(false);
   const [modalExcluded, setModalExcluded] = useState(false);
+  const [isInPokedex, setIsInPokedex] = useState(true);
 
   const capture = (pokemon) => {
     const pokemonsFiltered = pokemons.filter(
@@ -43,6 +46,9 @@ function GlobalState() {
     modalExcluded,
     setModalCapture,
     remove,
+    isInPokedex,
+    setIsInPokedex
+
   };
 }
 

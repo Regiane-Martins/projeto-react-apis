@@ -6,7 +6,7 @@ import { BASE_URL } from "../../constant/BASE_URL";
 import axios from "axios";
 import { Container } from "../../components/container";
 import { useContext } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 import ModalCapture from "../../components/modal-capture";
 
 function Home() {

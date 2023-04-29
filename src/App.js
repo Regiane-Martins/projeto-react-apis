@@ -1,5 +1,5 @@
-import { GlobalContext } from "./context/GlobalContext";
-import GlobalState from "./context/GlobalState";
+import { GlobalContext } from "./contexts/GlobalContext";
+import GlobalState from "./contexts/GlobalState";
 import Router from "./components/routes/Router";
 
 function App() {
