@@ -16,7 +16,10 @@ function Detail() {
   const [types, setTypes] = useState([]);
   const [imageMain, setImageMain] = useState("");
   const [moves, setMoves] = useState([]);
+  const [baseStats, setBaseStats] = useState([]);
   /* const [color, setColor] = useState(""); */
+
+  const total = baseStats.reduce((a, b) => a + b.base_stat, 0);
 
   const handleDetails = async (namePokemon) => {
     try {
@@ -29,7 +32,7 @@ function Detail() {
       setTypes(res.data.types);
       setImageMain(res.data.sprites.other["official-artwork"].front_default);
       setMoves(res.data.moves.slice(0, 4));
-      console.log(res.data.moves.slice(0, 4));
+      setBaseStats(res.data.stats);
 
       /*  const mainAttribute = attributes.find(
         (item) => item.type === res.data.types[0].type.name
@@ -42,6 +45,17 @@ function Detail() {
   useEffect(() => {
     handleDetails(params.namePokemon);
   }, []);
+
+  const getStatName = (name) => {
+    switch (name) {
+      case "special-attack":
+        return "sp. atk";
+      case "special-defense":
+        return "sp. def";
+      default:
+        return name;
+    }
+  };
 
   return (
     <>
@@ -61,6 +75,26 @@ function Detail() {
               </s.SeparatorImage>
               <s.BaseCard>
                 <s.TitleBase>Base stats</s.TitleBase>
+                <s.ContentBase>
+                  <s.Separator />
+                  {baseStats.map((base) => {
+                    return (
+                      <s.Divider>
+                        <s.SubTitleBase>
+                          {getStatName(base.stat.name)}
+                        </s.SubTitleBase>
+                        <s.Points>{base.base_stat}</s.Points>
+                        <s.Graphic>-------</s.Graphic>
+                      </s.Divider>
+                    );
+                  })}
+                  <s.Separator />
+                  <s.Divider>
+                    <s.SubTitleBase>Total</s.SubTitleBase>
+                    <s.Total>{total}</s.Total>
+                  </s.Divider>
+                  <s.Separator />
+                </s.ContentBase>
               </s.BaseCard>
               <s.DataPokemons>
                 <s.Id>#{String(id).padStart(2, "0")}</s.Id>
@@ -82,7 +116,7 @@ function Detail() {
                 <s.MovesCard>
                   <s.TitleMoves>Moves:</s.TitleMoves>
                   {moves.map((move) => (
-                    <s.Moves>
+                    <s.Moves key={move.name}>
                       <s.SubTitleMoves>{move.move.name}</s.SubTitleMoves>
                     </s.Moves>
                   ))}

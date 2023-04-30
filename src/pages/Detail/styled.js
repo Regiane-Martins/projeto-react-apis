@@ -32,8 +32,6 @@ export const DetailCard = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  /* height: 663px;
-  width: auto; */
 `;
 
 export const PokemonIcon = styled.img`
@@ -95,8 +93,46 @@ export const BaseCard = styled.div`
   width: 343px;
 `;
 
+export const Separator = styled.hr`
+  color: #000000;
+  opacity: 0.1;
+  width: 100%;
+`;
+
+export const ContentBase = styled.div`
+  height: 80px;
+`;
+
 export const TitleBase = styled.p`
   font-size: 1.5rem;
+  font-weight: 800;
+`;
+
+export const Divider = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  align-items: center;
+  gap: 2.3rem;
+  margin-bottom: 0.7rem;
+`;
+
+export const SubTitleBase = styled.p`
+  font-size: 0.85rem;
+  color: #000000;
+  opacity: 0.7;
+  text-transform: capitalize;
+  text-align: right;
+`;
+export const Points = styled.span`
+  color: #000000;
+  opacity: 0.8;
+  font-weight: 500;
+`;
+
+export const Graphic = styled.p``;
+export const Total = styled.p`
+  color: #000000;
+  opacity: 0.7;
   font-weight: 800;
 `;
 
@@ -151,15 +187,10 @@ export const Moves = styled.div`
   border: 1px dashed rgba(0, 0, 0, 0.14);
   border-radius: 12px;
   color: #000;
-  display: inline-flex;
   font-size: 0.875rem;
-  height: auto;
-  width: auto;
 `;
 
 export const SubTitleMoves = styled.p`
   padding: 10px;
-  :first-letter {
-    text-transform: capitalize;
-  }
+  text-transform: capitalize;
 `;
