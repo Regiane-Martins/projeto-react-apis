@@ -25,7 +25,7 @@ export const Title = styled.h1`
 
 export const DetailCard = styled.div`
   background-image: url(${process.env.PUBLIC_URL}/img/pngwing3.svg);
-  background-color: #729f92;
+  background-color: ${({ color }) => color};
   background-position: right center;
   background-repeat: no-repeat;
   border-radius: 37.89px;
@@ -112,7 +112,7 @@ export const Divider = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   align-items: center;
-  gap: 2.3rem;
+  gap: 2rem;
   margin-bottom: 0.7rem;
 `;
 
@@ -129,7 +129,13 @@ export const Points = styled.span`
   font-weight: 500;
 `;
 
-export const Graphic = styled.p``;
+export const Graphic = styled.p`
+  width: ${({ base }) => base}%;
+  height: 12px;
+  border-radius: 12px;
+  background-color: ${({ base }) => (base <= 50 ? "#ff7c2e" : "#ffdd69")};
+  text-align: left;
+`;
 export const Total = styled.p`
   color: #000000;
   opacity: 0.7;
@@ -187,6 +193,9 @@ export const Moves = styled.div`
   border: 1px dashed rgba(0, 0, 0, 0.14);
   border-radius: 12px;
   color: #000;
+  display: flex;
+  width: fit-content;
+  height: auto;
   font-size: 0.875rem;
 `;
 

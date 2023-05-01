@@ -6,9 +6,14 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../../constant/BASE_URL";
 import axios from "axios";
 import { attributes } from "../../components/settings";
+import { Fragment } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 function Detail() {
+  const context = useContext(GlobalContext);
   const params = useParams();
+
   const [imageBack, setImageBack] = useState("");
   const [imageFront, setImageFront] = useState("");
   const [id, setId] = useState("");
@@ -17,14 +22,20 @@ function Detail() {
   const [imageMain, setImageMain] = useState("");
   const [moves, setMoves] = useState([]);
   const [baseStats, setBaseStats] = useState([]);
-  /* const [color, setColor] = useState(""); */
+  const [color, setColor] = useState("");
 
   const total = baseStats.reduce((a, b) => a + b.base_stat, 0);
 
   const handleDetails = async (namePokemon) => {
     try {
       const res = await axios.get(`${BASE_URL}/` + namePokemon);
-      console.log(res.data);
+
+      context.setDetailedPokemon({
+        id: res.data.id,
+        name: res.data.forms[0].name,
+        url: `${BASE_URL}/${res.data.id}`,
+      });
+
       setImageBack(res.data.sprites.back_default);
       setImageFront(res.data.sprites.front_default);
       setId(res.data.id);
@@ -34,17 +45,19 @@ function Detail() {
       setMoves(res.data.moves.slice(0, 4));
       setBaseStats(res.data.stats);
 
-      /*  const mainAttribute = attributes.find(
+      const mainAttribute = attributes.find(
         (item) => item.type === res.data.types[0].type.name
       );
-      setColor(mainAttribute.cardColor); */
+
+      setColor(mainAttribute.cardColor);
     } catch (error) {
       console.log(error.response);
     }
   };
+
   useEffect(() => {
     handleDetails(params.namePokemon);
-  }, []);
+  }, [params.namePokemon]);
 
   const getStatName = (name) => {
     switch (name) {
@@ -63,7 +76,7 @@ function Detail() {
       <s.Section>
         <Container>
           <s.Title>Detalhes</s.Title>
-          <s.DetailCard>
+          <s.DetailCard color={color}>
             <s.ContentCard>
               <s.SeparatorImage>
                 <s.ImageCard>
@@ -76,16 +89,18 @@ function Detail() {
               <s.BaseCard>
                 <s.TitleBase>Base stats</s.TitleBase>
                 <s.ContentBase>
-                  <s.Separator />
                   {baseStats.map((base) => {
                     return (
-                      <s.Divider>
-                        <s.SubTitleBase>
-                          {getStatName(base.stat.name)}
-                        </s.SubTitleBase>
-                        <s.Points>{base.base_stat}</s.Points>
-                        <s.Graphic>-------</s.Graphic>
-                      </s.Divider>
+                      <Fragment key={base.stat.name}>
+                        <s.Separator />
+                        <s.Divider>
+                          <s.SubTitleBase>
+                            {getStatName(base.stat.name)}
+                          </s.SubTitleBase>
+                          <s.Points>{base.base_stat}</s.Points>
+                          <s.Graphic base={Number(base.base_stat)}></s.Graphic>
+                        </s.Divider>
+                      </Fragment>
                     );
                   })}
                   <s.Separator />
@@ -101,13 +116,13 @@ function Detail() {
                 <s.Name>{name}</s.Name>
                 <s.Attribute>
                   {!!types.length &&
-                    types.map((item, index) => {
+                    types.map((item) => {
                       const attribute = attributes.find(
                         (attribute) => attribute.type === item.type.name
                       );
 
                       return (
-                        <s.Type key={index} {...attribute}>
+                        <s.Type key={item.type.name} {...attribute}>
                           {item.type.name}
                         </s.Type>
                       );
@@ -116,7 +131,7 @@ function Detail() {
                 <s.MovesCard>
                   <s.TitleMoves>Moves:</s.TitleMoves>
                   {moves.map((move) => (
-                    <s.Moves key={move.name}>
+                    <s.Moves key={move.move.name}>
                       <s.SubTitleMoves>{move.move.name}</s.SubTitleMoves>
                     </s.Moves>
                   ))}

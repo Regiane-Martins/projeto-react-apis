@@ -10,7 +10,18 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const context = useContext(GlobalContext);
-  const { capture, remove, modalCapture, modalExcluded } = context;
+  const {
+    capture,
+    remove,
+    modalCapture,
+    modalExcluded,
+    detailedPokemon,
+    pokedex,
+  } = context;
+
+  function isDetailedPokemonInPokedex() {
+    return pokedex.find((item) => item.name === detailedPokemon.name);
+  }
 
   return (
     <>
@@ -19,14 +30,12 @@ function Header() {
           <s.Header>
             <s.headerSection></s.headerSection>
             <s.headerSection>
-              {" "}
               <s.Logo
                 src={process.env.PUBLIC_URL + "/img/logo.svg"}
                 alt="logo Pokémon"
               />
             </s.headerSection>
             <s.headerSection>
-              {" "}
               <s.ButtonCart onClick={() => goToList(navigate)}>
                 Pokédex
               </s.ButtonCart>
@@ -44,7 +53,7 @@ function Header() {
                   alt="seta esquerda"
                 />
                 <s.Link
-                  href="/"
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     goToHome(navigate);
@@ -52,7 +61,13 @@ function Header() {
                 >
                   Todos Pokémons
                 </s.Link>
-                <s.Home href="/">
+                <s.Home
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goToHome(navigate);
+                  }}
+                >
                   <s.HomeIcon
                     src={process.env.PUBLIC_URL + "/img/home.svg"}
                     alt="home"
@@ -82,7 +97,13 @@ function Header() {
                   src={process.env.PUBLIC_URL + "/img/home.svg"}
                   alt="home"
                 />
-                <s.Link href="/" onClick={() => goToHome(navigate)}>
+                <s.Link
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goToHome(navigate);
+                  }}
+                >
                   Todos Pokémons
                 </s.Link>
               </s.ReturnPage>
@@ -92,12 +113,16 @@ function Header() {
               />
             </s.headerSection>
             <s.headerSection>
-              {location.pathname === "/list" ? (
-                <s.DeleteAndCapturePokemon onClick={() => remove()}>
+              {isDetailedPokemonInPokedex() ? (
+                <s.DeleteAndCapturePokemon
+                  onClick={() => remove(detailedPokemon)}
+                >
                   Excluir da Pokédex
                 </s.DeleteAndCapturePokemon>
               ) : (
-                <s.DeleteAndCapturePokemon onClick={() => capture()}>
+                <s.DeleteAndCapturePokemon
+                  onClick={() => capture(detailedPokemon)}
+                >
                   Capturar
                 </s.DeleteAndCapturePokemon>
               )}
