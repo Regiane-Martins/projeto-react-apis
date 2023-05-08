@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - regiane-henrique/projeto-intro-web
+      - regiane-henrique/projeto-lista-intro-javascript
 
 jobs:
   surge:

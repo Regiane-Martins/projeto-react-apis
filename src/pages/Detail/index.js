@@ -26,36 +26,36 @@ function Detail() {
 
   const total = baseStats.reduce((a, b) => a + b.base_stat, 0);
 
-  const handleDetails = async (namePokemon) => {
-    try {
-      const res = await axios.get(`${BASE_URL}/` + namePokemon);
-
-      context.setDetailedPokemon({
-        id: res.data.id,
-        name: res.data.forms[0].name,
-        url: `${BASE_URL}/${res.data.id}`,
-      });
-
-      setImageBack(res.data.sprites.back_default);
-      setImageFront(res.data.sprites.front_default);
-      setId(res.data.id);
-      setName(res.data.forms[0].name);
-      setTypes(res.data.types);
-      setImageMain(res.data.sprites.other["official-artwork"].front_default);
-      setMoves(res.data.moves.slice(0, 4));
-      setBaseStats(res.data.stats);
-
-      const mainAttribute = attributes.find(
-        (item) => item.type === res.data.types[0].type.name
-      );
-
-      setColor(mainAttribute.cardColor);
-    } catch (error) {
-      console.log(error.response);
-    }
-  };
-
   useEffect(() => {
+    async function handleDetails(namePokemon) {
+      try {
+        const res = await axios.get(`${BASE_URL}/` + namePokemon);
+
+        context.setDetailedPokemon({
+          id: res.data.id,
+          name: res.data.forms[0].name,
+          url: `${BASE_URL}/${res.data.id}`,
+        });
+
+        setImageBack(res.data.sprites.back_default);
+        setImageFront(res.data.sprites.front_default);
+        setId(res.data.id);
+        setName(res.data.forms[0].name);
+        setTypes(res.data.types);
+        setImageMain(res.data.sprites.other["official-artwork"].front_default);
+        setMoves(res.data.moves.slice(0, 4));
+        setBaseStats(res.data.stats);
+
+        const mainAttribute = attributes.find(
+          (item) => item.type === res.data.types[0].type.name
+        );
+
+        setColor(mainAttribute.cardColor);
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+
     handleDetails(params.namePokemon);
   }, [params.namePokemon]);
 
