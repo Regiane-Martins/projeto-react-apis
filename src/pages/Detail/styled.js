@@ -33,22 +33,30 @@ export const DetailCard = styled.div`
   display: flex;
   flex-wrap: wrap;
 
+  @media (max-width: 768px) {
+    background-position: top center;
+  }
+
   @media (max-width: 480px) {
     background-position: center center;
   }
 `;
 
 export const PokemonIcon = styled.img`
-  height: 270px;
+  height: auto;
   width: 270px;
   position: absolute;
   right: 2.196rem;
   top: -120px;
 
-  @media (max-width: 480px) {
-    height: 170px;
-    width: 170px;
+  @media (max-width: 768px) {
+    width: 180px;
     top: -70px;
+    right: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 170px;
     right: 0.3rem;
   }
 `;
@@ -58,8 +66,12 @@ export const ContentCard = styled.div`
   gap: 34px 47px;
   padding: 25px 44px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     flex-direction: column;
+  }
+
+  @media (max-width: 480px) {
+    gap: 20px;
     padding: 25px;
   }
 `;
@@ -70,12 +82,12 @@ export const SeparatorImage = styled.div`
   gap: 47px;
   width: 33%;
 
-  @media (max-width: 480px) {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
+  @media (max-width: 768px) {
     align-items: center;
-    margin-top: 7rem;
+    display: grid;
     gap: 13px;
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 7rem;
   }
 `;
 
@@ -86,22 +98,25 @@ export const ImageCard = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     align-items: center;
     display: flex;
     justify-content: center;
+    height: 200px;
+    width: 250px;
+  }
+  @media (max-width: 480px) {
     height: 130px;
     width: 120px;
   }
 `;
 
 export const Image = styled.img`
-  height: 282px;
+  height: auto;
   width: 282px;
 
   @media (max-width: 480px) {
-    height: 82px;
-    width: 82px;
+    width: 150px;
   }
 `;
 
@@ -115,6 +130,11 @@ export const BaseCard = styled.div`
   height: 613px;
   padding: 18px;
   width: 343px;
+
+  @media (max-width: 768px) {
+    height: 380px;
+    width: 580px;
+  }
 
   @media (max-width: 480px) {
     height: 320px;
@@ -131,7 +151,7 @@ export const Separator = styled.hr`
 export const ContentBase = styled.div`
   height: 80px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     height: 60px;
     text-align: center;
   }
@@ -197,13 +217,15 @@ export const Total = styled.p`
 `;
 
 export const DataPokemons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   color: #fff;
   margin-right: auto;
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     position: absolute;
     top: 0;
-    margin-left: 16px;
     padding: 20px 0;
   }
 `;
@@ -267,13 +289,18 @@ export const MovesCard = styled.div`
   padding: 18px;
   width: 292px;
 
-  @media (max-width: 480px) {
-    height: 270px;
-    width: 192px;
+  @media (max-width: 768px) {
+    height: 410px;
+    margin-top: 1.7rem;
     position: absolute;
     top: 7rem;
-    transform: translateX(70%);
-    margin-top: 1.7rem;
+    transform: translateX(100%);
+  }
+
+  @media (max-width: 480px) {
+    height: 270px;
+    transform: translateX(80%);
+    width: 192px;
   }
 `;
 

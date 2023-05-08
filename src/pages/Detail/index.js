@@ -130,6 +130,7 @@ function Detail() {
                       );
                     })}
                 </s.Attribute>
+
                 <s.MovesCard>
                   <s.TitleMoves>Moves:</s.TitleMoves>
                   {moves.map((move) => (

@@ -8,7 +8,6 @@ import ModalExcluded from "../../components/modalExcluded";
 
 function List() {
   const context = useContext(GlobalContext);
-  console.log(context);
   const renderPokemonCaptured =
     context.pokedex &&
     context.pokedex.map((pokemon) => (
