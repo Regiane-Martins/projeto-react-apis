@@ -57,7 +57,7 @@ function Detail() {
     }
 
     handleDetails(params.namePokemon);
-  }, [params.namePokemon]);
+  }, [params.namePokemon, context]);
 
   const getStatName = (name) => {
     switch (name) {
