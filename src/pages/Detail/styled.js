@@ -18,7 +18,7 @@ export const Title = styled.h1`
 
   @media (max-width: 480px) {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     text-align: center;
   }
 `;
@@ -32,6 +32,10 @@ export const DetailCard = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    background-position: center center;
+  }
 `;
 
 export const PokemonIcon = styled.img`
@@ -40,44 +44,64 @@ export const PokemonIcon = styled.img`
   position: absolute;
   right: 2.196rem;
   top: -120px;
+
+  @media (max-width: 480px) {
+    height: 170px;
+    width: 170px;
+    top: -70px;
+    right: 0.3rem;
+  }
 `;
 
 export const ContentCard = styled.div`
   display: flex;
   gap: 34px 47px;
   padding: 25px 44px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    padding: 25px;
+  }
 `;
 
 export const SeparatorImage = styled.div`
   display: flex;
   flex-direction: column;
   gap: 47px;
+  width: 33%;
+
+  @media (max-width: 480px) {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    margin-top: 7rem;
+    gap: 13px;
+  }
 `;
 
 export const ImageCard = styled.div`
+  align-items: center;
   background-color: #fff;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 130px;
+    width: 120px;
+  }
 `;
 
 export const Image = styled.img`
   height: 282px;
   width: 282px;
-`;
 
-export const Type = styled.button`
-  background: url(${({ image }) => image}) no-repeat 10% center
-    ${({ color }) => color};
-  border: 1px dashed #fff;
-  border-radius: 8px;
-  color: #fff;
-  font-family: "Poppins";
-  font-size: 0.875rem;
-  font-weight: 400;
-  padding: 5px 8px 5px 40px;
-  text-align: right;
-
-  :first-letter {
-    text-transform: capitalize;
+  @media (max-width: 480px) {
+    height: 82px;
+    width: 82px;
   }
 `;
 
@@ -91,6 +115,11 @@ export const BaseCard = styled.div`
   height: 613px;
   padding: 18px;
   width: 343px;
+
+  @media (max-width: 480px) {
+    height: 320px;
+    width: 350px;
+  }
 `;
 
 export const Separator = styled.hr`
@@ -101,11 +130,20 @@ export const Separator = styled.hr`
 
 export const ContentBase = styled.div`
   height: 80px;
+
+  @media (max-width: 480px) {
+    height: 60px;
+    text-align: center;
+  }
 `;
 
 export const TitleBase = styled.p`
   font-size: 1.5rem;
   font-weight: 800;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Divider = styled.div`
@@ -113,7 +151,10 @@ export const Divider = styled.div`
   grid-template-columns: 1fr 1fr 2fr;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 0.7rem;
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+  }
 `;
 
 export const SubTitleBase = styled.p`
@@ -122,11 +163,20 @@ export const SubTitleBase = styled.p`
   opacity: 0.7;
   text-transform: capitalize;
   text-align: right;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
 `;
 export const Points = styled.span`
   color: #000000;
   opacity: 0.8;
   font-weight: 500;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
 `;
 
 export const Graphic = styled.p`
@@ -134,17 +184,28 @@ export const Graphic = styled.p`
   height: 12px;
   border-radius: 12px;
   background-color: ${({ base }) => (base <= 50 ? "#ff7c2e" : "#ffdd69")};
-  text-align: left;
 `;
 export const Total = styled.p`
   color: #000000;
   opacity: 0.7;
   font-weight: 800;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
 `;
 
 export const DataPokemons = styled.div`
   color: #fff;
-  margin-left: 68px;
+  margin-right: auto;
+
+  @media (max-width: 480px) {
+    position: absolute;
+    top: 0;
+    margin-left: 16px;
+    padding: 20px 0;
+  }
 `;
 
 export const Id = styled.p`
@@ -162,12 +223,37 @@ export const Name = styled.p`
   :first-letter {
     text-transform: capitalize;
   }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 export const Attribute = styled.div`
   display: flex;
   gap: 0.313rem;
-  margin-bottom: 4.188rem;
+  margin-bottom: 3.1rem;
+`;
+
+export const Type = styled.button`
+  background: url(${({ image }) => image}) no-repeat 10% center
+    ${({ color }) => color};
+  border: 1px dashed #fff;
+  border-radius: 8px;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding: 5px 8px 5px 40px;
+  text-align: right;
+
+  :first-letter {
+    text-transform: capitalize;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const MovesCard = styled.div`
@@ -180,11 +266,24 @@ export const MovesCard = styled.div`
   height: 453px;
   padding: 18px;
   width: 292px;
+
+  @media (max-width: 480px) {
+    height: 270px;
+    width: 192px;
+    position: absolute;
+    top: 7rem;
+    transform: translateX(70%);
+    margin-top: 1.7rem;
+  }
 `;
 
 export const TitleMoves = styled.p`
   font-size: 1.5rem;
   font-weight: 800;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Moves = styled.div`
@@ -197,6 +296,10 @@ export const Moves = styled.div`
   width: fit-content;
   height: auto;
   font-size: 0.875rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+  }
 `;
 
 export const SubTitleMoves = styled.p`

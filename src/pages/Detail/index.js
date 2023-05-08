@@ -65,6 +65,8 @@ function Detail() {
         return "sp. atk";
       case "special-defense":
         return "sp. def";
+      case "hp":
+        return "HP";
       default:
         return name;
     }

@@ -99,28 +99,31 @@ export const ReturnPage = styled.div`
   }
 
   @media (max-width: 480px) {
+    gap: 0.3rem;
     left: 1.5rem;
   }
 `;
 
 export const ArrowIcon = styled.img`
   @media (max-width: 480px) {
-    display: none;
+    left: 1rem;
   }
 `;
 
 export const Link = styled.a`
   color: #1a1a1a;
+  cursor: pointer;
   font-family: "Poppins";
   font-size: 1.5rem;
   font-weight: 700;
+  text-decoration: underline;
 
   @media (max-width: 768px) {
     font-size: 1rem;
   }
 
   @media (max-width: 480px) {
-    display: none;
+    font-size: 0.75rem;
   }
 `;
 

@@ -23,115 +23,56 @@ function Header() {
     return pokedex.find((item) => item.name === detailedPokemon.name);
   }
 
+  const returnPage = (
+    <s.ReturnPage>
+      <s.ArrowIcon
+        src={process.env.PUBLIC_URL + "/img/arrow.svg"}
+        alt="seta esquerda"
+      />
+      <s.Link onClick={() => goToHome(navigate)}>Todos Pokémons</s.Link>
+    </s.ReturnPage>
+  );
+
+  const logo = (
+    <s.Logo src={process.env.PUBLIC_URL + "/img/logo.svg"} alt="logo Pokémon" />
+  );
+
+  const pokedexButton = (
+    <s.ButtonCart onClick={() => goToList(navigate)}>Pokédex</s.ButtonCart>
+  );
+
+  const captureButton = (
+    <s.DeleteAndCapturePokemon onClick={() => capture(detailedPokemon)}>
+      Capturar
+    </s.DeleteAndCapturePokemon>
+  );
+
+  const removeButton = (
+    <s.DeleteAndCapturePokemon onClick={() => remove(detailedPokemon)}>
+      Excluir da Pokédex
+    </s.DeleteAndCapturePokemon>
+  );
+
   return (
     <>
-      {location.pathname === "/" ? (
-        <s.HeaderContent>
-          <s.Header>
-            <s.headerSection></s.headerSection>
-            <s.headerSection>
-              <s.Logo
-                src={process.env.PUBLIC_URL + "/img/logo.svg"}
-                alt="logo Pokémon"
-              />
-            </s.headerSection>
-            <s.headerSection>
-              <s.ButtonCart onClick={() => goToList(navigate)}>
-                Pokédex
-              </s.ButtonCart>
-            </s.headerSection>
-          </s.Header>
-        </s.HeaderContent>
-      ) : location.pathname === "/list" ? (
-        <s.HeaderContent>
-          <s.Header>
-            <s.headerSection></s.headerSection>
-            <s.headerSection>
-              <s.ReturnPage>
-                <s.ArrowIcon
-                  src={process.env.PUBLIC_URL + "/img/arrow.svg"}
-                  alt="seta esquerda"
-                />
-                <s.Link
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    goToHome(navigate);
-                  }}
-                >
-                  Todos Pokémons
-                </s.Link>
-                <s.Home
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    goToHome(navigate);
-                  }}
-                >
-                  <s.HomeIcon
-                    src={process.env.PUBLIC_URL + "/img/home.svg"}
-                    alt="home"
-                  />
-                </s.Home>
-              </s.ReturnPage>
-            </s.headerSection>
-            <s.headerSection>
-              <s.Logo
-                src={process.env.PUBLIC_URL + "/img/logo.svg"}
-                alt="logo Pokémon"
-              />
-            </s.headerSection>
-          </s.Header>
-        </s.HeaderContent>
-      ) : (
-        <s.HeaderContent>
-          <s.Header>
-            <s.headerSection></s.headerSection>
-            <s.headerSection>
-              <s.ReturnPage>
-                <s.ArrowIcon
-                  src={process.env.PUBLIC_URL + "/img/arrow.svg"}
-                  alt="seta esquerda"
-                />
-                <s.HomeIcon
-                  src={process.env.PUBLIC_URL + "/img/home.svg"}
-                  alt="home"
-                />
-                <s.Link
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    goToHome(navigate);
-                  }}
-                >
-                  Todos Pokémons
-                </s.Link>
-              </s.ReturnPage>
-              <s.Logo
-                src={process.env.PUBLIC_URL + "/img/logo.svg"}
-                alt="logo Pokémon"
-              />
-            </s.headerSection>
-            <s.headerSection>
-              {isDetailedPokemonInPokedex() ? (
-                <s.DeleteAndCapturePokemon
-                  onClick={() => remove(detailedPokemon)}
-                >
-                  Excluir da Pokédex
-                </s.DeleteAndCapturePokemon>
-              ) : (
-                <s.DeleteAndCapturePokemon
-                  onClick={() => capture(detailedPokemon)}
-                >
-                  Capturar
-                </s.DeleteAndCapturePokemon>
-              )}
-              {modalExcluded && <ModalExcluded />}
-              {modalCapture && <ModalCapture />}
-            </s.headerSection>
-          </s.Header>
-        </s.HeaderContent>
-      )}
+      <s.HeaderContent>
+        <s.Header>
+          <s.headerSection></s.headerSection>
+          <s.headerSection>{logo}</s.headerSection>
+          <s.headerSection>
+            {location.pathname === "/" && pokedexButton}
+            {location.pathname === "/list" && returnPage}
+            {location.pathname !== "/" && location.pathname !== "/list" && (
+              <>
+                {returnPage}
+                {isDetailedPokemonInPokedex() ? removeButton : captureButton}
+                {modalExcluded && <ModalExcluded />}
+                {modalCapture && <ModalCapture />}
+              </>
+            )}
+          </s.headerSection>
+        </s.Header>
+      </s.HeaderContent>
     </>
   );
 }
