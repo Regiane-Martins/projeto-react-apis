@@ -23,10 +23,6 @@ export const Logo = styled.img`
   height: auto;
   margin: 0 auto;
   max-width: 100%;
-
-  @media (max-width: 480px) {
-    margin-right: 2rem;
-  }
 `;
 
 export const ButtonCart = styled.button`
@@ -49,8 +45,9 @@ export const ButtonCart = styled.button`
   }
 
   @media (max-width: 480px) {
-    height: 40px;
     font-size: 0.9rem;
+    height: 40px;
+    margin-left: 5rem;
     width: 90px;
   }
 `;
@@ -81,7 +78,7 @@ export const DeleteAndCapturePokemon = styled.button`
     height: 40px;
     font-size: 0.75rem;
     margin-right: 0.75rem;
-    padding: 0.2rem;
+    padding: 0.3rem;
     width: 100px;
   }
 `;
