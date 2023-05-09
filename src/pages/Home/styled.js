@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   background-color: #8a8a8a;
-  display: flex;
-  /* justify-content: center; */
-  /* padding: 70px 25px; */
 `;
 
 export const Content = styled.div`

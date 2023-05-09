@@ -110,6 +110,21 @@ export const ArrowIcon = styled.img`
   }
 `;
 
+export const Span = styled.span`
+  display: none;
+  @media (max-width: 480px) {
+    display: block;
+    line-height: 1.5;
+    text-align: center;
+  }
+`;
+
+export const SpanDesktop = styled.span`
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
 export const Link = styled.a`
   color: #1a1a1a;
   cursor: pointer;

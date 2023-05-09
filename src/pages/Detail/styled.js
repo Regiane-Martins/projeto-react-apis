@@ -50,14 +50,15 @@ export const PokemonIcon = styled.img`
   top: -120px;
 
   @media (max-width: 768px) {
-    width: 180px;
-    top: -70px;
     right: 2rem;
+    top: -70px;
+    width: 180px;
   }
 
   @media (max-width: 480px) {
-    width: 170px;
     right: 0.3rem;
+    top: -50px;
+    width: 130px;
   }
 `;
 
@@ -102,12 +103,12 @@ export const ImageCard = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 200px;
-    width: 250px;
+    height: auto;
+    width: 200px;
   }
   @media (max-width: 480px) {
-    height: 130px;
-    width: 120px;
+    height: auto;
+    width: 110px;
   }
 `;
 
@@ -138,7 +139,8 @@ export const BaseCard = styled.div`
 
   @media (max-width: 480px) {
     height: 320px;
-    width: 350px;
+
+    width: 260px;
   }
 `;
 
@@ -247,7 +249,7 @@ export const Name = styled.p`
   }
 
   @media (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -298,9 +300,10 @@ export const MovesCard = styled.div`
   }
 
   @media (max-width: 480px) {
-    height: 270px;
-    transform: translateX(80%);
-    width: 192px;
+    gap: 0.5rem;
+    height: 230px;
+    transform: translateX(100%);
+    width: 130px;
   }
 `;
 

@@ -29,7 +29,11 @@ function Header() {
         src={process.env.PUBLIC_URL + "/img/arrow.svg"}
         alt="seta esquerda"
       />
-      <s.Link onClick={() => goToHome(navigate)}>Todos Pokémons</s.Link>
+      <s.Link onClick={() => goToHome(navigate)}>
+        <s.SpanDesktop>Todos Pokémons</s.SpanDesktop>
+        <s.Span>Todos</s.Span>
+        <s.Span>Pokémons</s.Span>
+      </s.Link>
     </s.ReturnPage>
   );
 

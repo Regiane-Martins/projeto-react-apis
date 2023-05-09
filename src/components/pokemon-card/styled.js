@@ -8,14 +8,13 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  height: 210px;
+  height: auto;
   padding: 21px;
   position: relative;
   width: 440px;
 
   @media (max-width: 480px) {
-    height: 205px;
-    width: 400px;
+    width: 390px;
   }
 `;
 
@@ -102,9 +101,13 @@ export const ButtonDelete = styled.button`
 `;
 
 export const PokemonIcon = styled.img`
-  height: 193px;
+  height: auto;
   width: 193px;
   position: absolute;
   right: 0;
   top: -50px;
+
+  @media (max-width: 480px) {
+    width: 150px;
+  }
 `;
