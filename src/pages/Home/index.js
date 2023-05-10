@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import PokemonCard from "../../components/pokemon-card";
 import Header from "../../components/header";
 import * as s from "./styled";
@@ -12,13 +12,12 @@ import ModalCapture from "../../components/modal-capture";
 function Home() {
   const context = useContext(GlobalContext);
   const [offset, setOffset] = useState(0);
-  const [pokemonsItems, setPokemonsItems] = useState([]);
 
   const renderPokemon = context.pokemons
     .sort((a, b) => a.id - b.id)
     .map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />);
 
-  const renderPokemons = async () => {
+  const renderPokemons = useCallback(async () => {
     try {
       const res = await axios.get(`${BASE_URL}?limit=20&offset=${offset}`);
       const pokemons = res.data.results.map(({ name, url }) => {
@@ -31,28 +30,19 @@ function Home() {
         };
       });
 
-      context.setPokemons(pokemons);
-      setPokemonsItems((prevPokemonsItems) => [
-        ...prevPokemonsItems,
-        ...pokemons,
-      ]);
       setOffset(offset + 20);
+      context.setPokemons(pokemons);
     } catch (error) {
       alert(error.response);
     }
-  };
-
-  /* const handleViewMore = () => {
-    setLimit(limit + 20);
-  }; */
-
+  }, [context, offset]);
   useEffect(() => {
     if (context.pokemons.length > 0) {
       return;
     }
 
     renderPokemons();
-  });
+  }, [context.pokemons, renderPokemons]);
 
   return (
     <>

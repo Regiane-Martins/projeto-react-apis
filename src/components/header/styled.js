@@ -23,6 +23,10 @@ export const Logo = styled.img`
   height: auto;
   margin: 0 auto;
   max-width: 100%;
+
+  @media (max-width: 480px) {
+    max-width: 140%;
+  }
 `;
 
 export const ButtonCart = styled.button`
