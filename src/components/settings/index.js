@@ -3,7 +3,7 @@ export const attributes = [
     type: "poison",
     image: "/img/poison.svg",
     color: "#AD61AE",
-    cardColor: "#729F92",
+    cardColor: "#FF007F",
   },
 
   {
@@ -52,7 +52,7 @@ export const attributes = [
     type: "dark",
     image: "/img/dark.svg",
     color: "#5C5365",
-    cardColor: "#729F92",
+    cardColor: "#46295A",
   },
 
   {
@@ -63,65 +63,65 @@ export const attributes = [
   },
 
   {
-    type: "eletric",
-    image: "/img/eletric.svg",
+    type: "electric",
+    image: "/img/electric.svg",
     color: "#F4D23B",
-    cardColor: "#729F92",
+    cardColor: "#EEAD2D",
   },
 
   {
     type: "fairy",
     image: "/img/fairy.svg",
     color: "#EC8FE6",
-    cardColor: "#729F92",
+    cardColor: "#FF69B4",
   },
 
   {
     type: "fighting",
     image: "/img/fighting.svg",
     color: "#CE4069",
-    cardColor: "#729F92",
+    cardColor: "#D62598",
   },
 
   {
     type: "ghost",
     image: "/img/ghost.svg",
     color: "#5269AC",
-    cardColor: "#729F92",
+    cardColor: "#36465D",
   },
 
   {
     type: "ground",
     image: "/img/ground.svg",
     color: "#D97745",
-    cardColor: "#729F92",
+    cardColor: "#FF6600",
   },
 
   {
     type: "ice",
     image: "/img/ice.svg",
     color: "#74CEC0",
-    cardColor: "#729F92",
+    cardColor: "#6BB7C4",
   },
 
   {
     type: "psychic",
     image: "/img/psychic.svg",
     color: "#F67176",
-    cardColor: "#729F92",
+    cardColor: "#DC143C",
   },
 
   {
     type: "rock",
     image: "/img/rock.svg",
     color: "#C7B78B",
-    cardColor: "#729F92",
+    cardColor: "#CABB9E",
   },
 
   {
     type: "steel",
     image: "/img/steel.svg",
     color: "#BBBBBB",
-    cardColor: "#729F92",
+    cardColor: "#696969",
   },
 ];

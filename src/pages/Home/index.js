@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PokemonCard from "../../components/pokemon-card";
 import Header from "../../components/header";
 import * as s from "./styled";
@@ -11,6 +11,8 @@ import ModalCapture from "../../components/modal-capture";
 
 function Home() {
   const context = useContext(GlobalContext);
+  const [offset, setOffset] = useState(0);
+  const [pokemonsItems, setPokemonsItems] = useState([]);
 
   const renderPokemon = context.pokemons
     .sort((a, b) => a.id - b.id)
@@ -18,7 +20,7 @@ function Home() {
 
   const renderPokemons = async () => {
     try {
-      const res = await axios.get(BASE_URL);
+      const res = await axios.get(`${BASE_URL}?limit=20&offset=${offset}`);
       const pokemons = res.data.results.map(({ name, url }) => {
         const match = url.match(/[^/]+(?=\/$|$)/);
 
@@ -30,10 +32,19 @@ function Home() {
       });
 
       context.setPokemons(pokemons);
+      setPokemonsItems((prevPokemonsItems) => [
+        ...prevPokemonsItems,
+        ...pokemons,
+      ]);
+      setOffset(offset + 20);
     } catch (error) {
       alert(error.response);
     }
   };
+
+  /* const handleViewMore = () => {
+    setLimit(limit + 20);
+  }; */
 
   useEffect(() => {
     if (context.pokemons.length > 0) {
@@ -52,6 +63,12 @@ function Home() {
           <s.Content>{renderPokemon}</s.Content>
           {context.modalCapture && <ModalCapture />}
         </Container>
+        <s.ContainerViewMore>
+          <s.ViewMore onClick={renderPokemons}>
+            Ver mais
+            <s.MoreIcon src={process.env.PUBLIC_URL + "/img/next.svg"} />
+          </s.ViewMore>
+        </s.ContainerViewMore>
       </s.Section>
     </>
   );
