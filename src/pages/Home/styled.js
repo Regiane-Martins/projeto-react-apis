@@ -33,6 +33,7 @@ export const Title = styled.h1`
 export const ContainerViewMore = styled.div`
   display: flex;
   justify-content: center;
+  padding-bottom: 2rem;
 `;
 
 export const ViewMore = styled.button`
@@ -54,5 +55,4 @@ export const ViewMore = styled.button`
   width: 300px;
 `;
 
-export const MoreIcon = styled.img`
-`;
+export const MoreIcon = styled.img``;
