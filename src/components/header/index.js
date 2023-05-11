@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import * as s from "./styled";
-import { goToHome, goToList } from "../routes/coordenatior";
+import { goToHome, goToList } from "../../routes/coordenatior";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 import ModalCapture from "../modal-capture";

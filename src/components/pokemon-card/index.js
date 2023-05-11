@@ -2,11 +2,11 @@ import axios from "axios";
 import * as s from "./styled";
 import { useEffect } from "react";
 import { useState } from "react";
-import { goToDetail } from "../routes/coordenatior";
+import { goToDetail } from "../../routes/coordenatior";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
-import { attributes } from "../settings";
+import { attributes } from "../../settings";
 
 function PokemonCard(props) {
   const context = useContext(GlobalContext);

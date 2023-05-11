@@ -5,7 +5,7 @@ import * as s from "./styled";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../constant/BASE_URL";
 import axios from "axios";
-import { attributes } from "../../components/settings";
+import { attributes } from "../../settings";
 import { Fragment } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
