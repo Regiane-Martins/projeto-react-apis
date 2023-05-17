@@ -1,3 +1,16 @@
+# **Link Surge**
+regiane-pokedex.surge.sh
+
+
+# **Prints pages**
+
+![Home](.github/prints/home.png)
+![Pokedex](.github/prints/pokedex.png)
+![Details](.github/prints/detail.png)
+
+
+
+
 # **Projeto React e API's**
 O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. O projeto está subdivido em temas de acordo com os conteúdos que estudado durante o Módulo 2 - Frontend.
 
